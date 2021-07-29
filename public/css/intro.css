@@ -1,3 +1,15 @@
+body{
+    overflow-y: hidden;
+    color: white!important;
+    background-color: rgb(0, 48, 110)!important;
+}
+
+label{
+    color: rgb(255, 255, 255)!important;
+}
+h1{
+    font-weight: 500!important;
+}
 .login {
     min-height: 100vh;
   }
@@ -6,6 +18,7 @@
     background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200');
     background-size: cover;
     background-position: center;
+    /* height: 100%; */
   }
   
   .login-heading {
@@ -16,5 +29,10 @@
     font-size: 0.9rem;
     letter-spacing: 0.05rem;
     padding: 0.75rem 1rem;
+    background-color: white!important;
+    color: rgb(0, 48, 110)!important;
   }
   
+  input{
+    background-color: rgb(0, 48, 110)!important;
+  }
