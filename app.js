@@ -7,6 +7,15 @@ app.use(express.static(__dirname + '/public'));
 app.use("/static", express.static('./static'));
 app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
+    res.render('home');
+});
+app.get('/contact', (req, res) => {
+    res.render('contact');
+});
+app.get('/about', (req, res) => {
+    res.render('about');
+});
+app.get('/login', (req, res) => {
     res.render('login');
 });
 
