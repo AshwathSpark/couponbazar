@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 app.get('/contact', (req, res) => {
     res.render('contact');
 });
-app.get('/buy', (req, res) => {
+app.get('/buy', async(req, res) => {
     let coupon = await Coupon.find({});
     res.render('buy',{coupon});
 });

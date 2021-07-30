@@ -17,12 +17,17 @@ const seedCoupon = async () => {
     Coupon.insertMany([{
         brand: "Vincent Chase",
         description: "For your glasses",
-        code: "4XYYS7NFH",
+        code: "5XYYS7NFH",
         prize: 500
     },{
         brand: "louis vuitton",
         description: "50% off",
-        code: "5ERUS7NFH",
+        code: "4ERUS7NFH",
+        prize: 1000
+    },{
+        brand: "Parker",
+        description: "Buy 2 get 1 free",
+        code: "6HGJS8NFH",
         prize: 1000
     }
     ]).then(console.log("Logged the ddata"));
