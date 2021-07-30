@@ -1,13 +1,9 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const path = require('path')
 const ejs = require('ejs');
-const app = express();
 const Coupon = require('./models/coupon')
-const mongoose = require('mongoose')
-app.set("view engine", "ejs");
-app.use(express.static(__dirname + '/public'));
-app.use("/static", express.static('./static'));
-app.use(express.urlencoded({ extended: true }));
+
 const dbUrl =  "mongodb://localhost:27017/coupon";
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
@@ -18,6 +14,14 @@ mongoose.connect(dbUrl, {
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error"));
 db.once("open", () => { console.log("Connected db") });
+
+const app = express();
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + '/public'));
+app.use("/static", express.static('./static'));
+app.use(express.json())
+app.use(express.urlencoded({extended: true}));
+
 app.get('/', (req, res) => {
     res.render('home');
 });
@@ -27,6 +31,12 @@ app.get('/contact', (req, res) => {
 app.get('/buy', async(req, res) => {
     let coupon = await Coupon.find({});
     res.render('buy',{coupon});
+});
+app.post('/buy', async(req, res) => {
+    console.log(req.body)
+    var coupon = new Coupon(req.body);
+    await coupon.save();
+    res.redirect('/buy');
 });
 app.get('/about', (req, res) => {
     res.render('about');
