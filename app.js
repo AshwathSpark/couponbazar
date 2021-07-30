@@ -15,6 +15,15 @@ app.get('/contact', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about');
 });
+app.get('/sale', (req, res) => {
+    res.render('sale');
+});
+app.get('/yourb', (req, res) => {
+    res.render('yourb');
+});
+app.get('/yours', (req, res) => {
+    res.render('yours');
+});
 app.get('/login', (req, res) => {
     res.render('login');
 });
