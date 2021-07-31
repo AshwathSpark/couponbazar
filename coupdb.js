@@ -18,17 +18,23 @@ const seedCoupon = async () => {
         brand: "Vincent Chase",
         description: "For your glasses",
         code: "5XYYS7NFH",
-        prize: 500
+        prize: 500,
+        name: "Ashwath",
+        phone: "6642380684"
     },{
         brand: "louis vuitton",
         description: "50% off",
         code: "4ERUS7NFH",
-        prize: 1000
+        prize: 1000,
+        name: "Vansh",
+        phone: "9842388085"
     },{
         brand: "Parker",
         description: "Buy 2 get 1 free",
         code: "6HGJS8NFH",
-        prize: 1000
+        prize: 1000,
+        name: "Vishal",
+        phone: "8842384086"
     }
     ]).then(console.log("Logged the ddata"));
 }

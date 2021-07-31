@@ -36,6 +36,7 @@ app.post('/buy', async(req, res) => {
     console.log(req.body)
     var coupon = new Coupon(req.body);
     await coupon.save();
+    Coupon.findOneAndUpdate({'code': req.body.code}, {$set: {'name': 'Ashwath','phone':'6642380684'}}).then(console.log("sale update"));
     res.redirect('/buy');
 });
 app.get('/about', (req, res) => {
@@ -47,11 +48,20 @@ app.get('/sale', (req, res) => {
 app.get('/yourb', (req, res) => {
     res.render('yourb');
 });
-app.get('/yours', (req, res) => {
-    res.render('yours');
+app.get('/yours', async(req, res) => {
+    let nas = await Coupon.find({ 'name': 'Ashwath'});
+    res.render('yours',{nas});
+});
+app.post('/yours', async(req, res) => {
+    
+    Coupon.findOneAndDelete({'code': req.body.btn}).then(console.log("Removed " + req.body.btn));;
+    res.redirect('/yours');
 });
 app.get('/login', (req, res) => {
     res.render('login');
+});
+app.post('/login', (req, res) => {
+    res.redirect('/');
 });
 
 const port1 = 5000;

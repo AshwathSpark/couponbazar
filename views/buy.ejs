@@ -27,16 +27,19 @@
     <%- include('partials/link') %>
     <div class="container container-fluid ps-md-0">
         <div class="row content mt-5">
-            <h1 class="login-heading mb-4">Welcome Username</h1>
             <% for(var i=0; i<coupon.length; i++) {  %>
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
                     <h2 class="card-title text-center"><%= coupon[i].brand %></h2>
+                    <p class="card-text mt-3"> <em>Name</em> - <%= coupon[i].name %></p>
+                        <p class="card-text mt-3"> <em>PhoneNo</em> - <%= coupon[i].phone %></p>
                     <p class="card-text mt-3"> <em>Description</em> - <%= coupon[i].description %></p>
                     <p class="card-text "> <em>Code</em> - <%= coupon[i].code %></p>
                     <p class="card-text "> <em>Prize</em> - <%= coupon[i].prize %></p>
+                    <button name="btn" class="btn btn-lg btn-dark btn-login text-uppercase fw-bold mb-2" type="submit" value="<%= coupon[i].code %>">Buy</button>
                     </div>
+    
                 </div>
             </div>
             <% } %>
