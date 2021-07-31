@@ -39,21 +39,26 @@ app.post('/buy', async(req, res) => {
     Coupon.findOneAndUpdate({'code': req.body.code}, {$set: {'name': 'Ashwath','phone':'6642380684'}}).then(console.log("sale update"));
     res.redirect('/buy');
 });
+app.post('/buyw', async(req, res) => {
+    Coupon.findOneAndUpdate({'code': req.body.btn},{$set:{'bou':'b'}}).then(console.log("updated for buy" + req.body.btn));;
+    let nasa = await Coupon.find({ 'bou': 'b'});
+    res.render('yourb',{nasa});
+});
 app.get('/about', (req, res) => {
     res.render('about');
 });
 app.get('/sale', (req, res) => {
     res.render('sale');
 });
-app.get('/yourb', (req, res) => {
-    res.render('yourb');
+app.get('/yourb', async(req, res) => {
+    let nasa = await Coupon.find({ 'bou': 'b'});
+    res.render('yourb',{nasa});
 });
 app.get('/yours', async(req, res) => {
     let nas = await Coupon.find({ 'name': 'Ashwath'});
     res.render('yours',{nas});
 });
 app.post('/yours', async(req, res) => {
-    
     Coupon.findOneAndDelete({'code': req.body.btn}).then(console.log("Removed " + req.body.btn));;
     res.redirect('/yours');
 });

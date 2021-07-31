@@ -37,7 +37,9 @@
                     <p class="card-text mt-3"> <em>Description</em> - <%= coupon[i].description %></p>
                     <p class="card-text "> <em>Code</em> - <%= coupon[i].code %></p>
                     <p class="card-text "> <em>Prize</em> - <%= coupon[i].prize %></p>
+                    <form method="post" action="/buyw">
                     <button name="btn" class="btn btn-lg btn-dark btn-login text-uppercase fw-bold mb-2" type="submit" value="<%= coupon[i].code %>">Buy</button>
+                    </form>
                     </div>
     
                 </div>
