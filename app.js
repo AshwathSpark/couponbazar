@@ -23,7 +23,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 
 app.get('/', (req, res) => {
-    res.render('about');
+    res.redirect('/login');
 });
 app.get('/contact', (req, res) => {
     res.render('contact');
@@ -66,7 +66,7 @@ app.get('/login', (req, res) => {
     res.render('login');
 });
 app.post('/login', (req, res) => {
-    res.redirect('/');
+    res.redirect('/about');
 });
 
 const port1 = 5000;
